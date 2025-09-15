@@ -10,6 +10,7 @@ type MenuItem = {
   icon?: string;
 };
 
+// Dropdown data
 const dropdowns: Record<string, MenuItem[]> = {
   about: [
     {
@@ -39,7 +40,21 @@ const dropdowns: Record<string, MenuItem[]> = {
       label: "Loft Boarding & Storage",
       icon: "/images/icons8-chain-50.png",
     },
-    // ...rest
+    {
+      href: "/services/roof-insulation",
+      label: "Roof / Rafter Insulation",
+      icon: "/images/icons8-solar-panel-50.png",
+    },
+    {
+      href: "/services/cavity-wall-floor",
+      label: "Cavity Wall & Floor Insulation",
+      icon: "/images/icons8-wall-50.png",
+    },
+    {
+      href: "/services/removal-replacement",
+      label: "Insulation Removal & Replacement",
+      icon: "/images/icons8-gear-50.png",
+    },
   ],
   sectors: [
     {
@@ -52,7 +67,68 @@ const dropdowns: Record<string, MenuItem[]> = {
       label: "Commercial & Industrial",
       icon: "/images/icons8-office-50.png",
     },
-    // ...rest
+    {
+      href: "/sectors/housing",
+      label: "Housing Associations",
+      icon: "/images/icons8-office-phone-50.png",
+    },
+    {
+      href: "/sectors/landlords",
+      label: "Landlords / Property Managers",
+      icon: "/images/icons8-safety-hat-50.png",
+    },
+  ],
+  insulation: [
+    {
+      href: "/insulation/batts-rolls",
+      label: "Batts & Rolls",
+      icon: "/images/icons8-yoga-mat-50.png",
+    },
+    {
+      href: "/insulation/loose-fill",
+      label: "Loose-Fill Insulation",
+      icon: "/images/icons8-carpet-50.png",
+    },
+    {
+      href: "/insulation/spray-foam",
+      label: "Spray Foam Insulation",
+      icon: "/images/icons8-graffiti-art-50.png",
+    },
+    {
+      href: "/insulation/rigid-foam",
+      label: "Rigid Foam Board",
+      icon: "/images/icons8-strategy-50.png",
+    },
+    {
+      href: "/insulation/radiant-barrier",
+      label: "Radiant Barrier",
+      icon: "/images/icons8-radiator-50.png",
+    },
+    {
+      href: "/insulation/multifoil",
+      label: "Multifoil",
+      icon: "/images/icons8-heating-50.png",
+    },
+    {
+      href: "/insulation/natural",
+      label: "Natural Materials",
+      icon: "/images/icons8-jungle-50.png",
+    },
+    {
+      href: "/insulation/foam-in-place",
+      label: "Foam-in-Place Injection",
+      icon: "/images/icons8-enema-50.png",
+    },
+    {
+      href: "/insulation/icf",
+      label: "Insulating Concrete Forms",
+      icon: "/images/icons8-interior-50.png",
+    },
+    {
+      href: "/insulation/sips",
+      label: "Structural Insulated Panels",
+      icon: "/images/icons8-blueprint-50.png",
+    },
   ],
 };
 
