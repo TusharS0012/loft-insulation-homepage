@@ -2,7 +2,9 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { Home, Box, House, Layers, Trash2, CreditCard } from "lucide-react";
+import Image from "next/image";
 
 interface Service {
   icon: React.ReactNode;
@@ -15,85 +17,148 @@ const services: Service[] = [
     icon: <Home className="w-6 h-6 text-yellow-500" />,
     title: "Loft Insulation",
     description:
-      "Loft insulation is one of the most cost-effective ways to improve your home’s energy efficiency. Our expert team ensures proper installation that meets building regulations, helping you cut energy bills and reduce your carbon footprint.",
+      "Cut energy bills and reduce your carbon footprint with expert loft insulation that meets building standards.",
   },
   {
     icon: <Box className="w-6 h-6 text-yellow-500" />,
     title: "Loft Boarding & Storage",
     description:
-      "Maximize your loft’s potential with professional loft boarding and storage solutions, creating safe walking and storage space without compromising insulation.",
+      "Create safe walking and storage space in your loft without compromising insulation efficiency.",
   },
   {
     icon: <House className="w-6 h-6 text-yellow-500" />,
     title: "Roof & Rafter Insulation",
     description:
-      "Fit insulation directly under roof slopes to reduce heat loss, maintain consistent indoor temperatures, and make your home more comfortable year-round.",
+      "Keep your home warm year-round with insulation under roof slopes for consistent indoor comfort.",
   },
   {
     icon: <Layers className="w-6 h-6 text-yellow-500" />,
     title: "Cavity Wall / Floor Insulation",
     description:
-      "Fill gaps in walls and floors with durable insulating materials to reduce heat loss, save on heating bills, and improve energy efficiency in older homes.",
+      "Fill wall and floor gaps with durable materials to improve efficiency and lower heating costs.",
   },
   {
     icon: <Trash2 className="w-6 h-6 text-yellow-500" />,
     title: "Loft Clearance",
     description:
-      "Remove unwanted items, debris, and old or contaminated insulation responsibly, preparing your loft for fresh, efficient insulation.",
+      "Safely clear old or contaminated insulation and prepare your loft for a fresh upgrade.",
   },
   {
     icon: <CreditCard className="w-6 h-6 text-yellow-500" />,
     title: "Government Grant Assistance",
     description:
-      "Check eligibility and secure funding for free or subsidized loft insulation under government schemes like ECO4 or GBIS, hassle-free.",
+      "Get hassle-free support to secure funding through ECO4, GBIS, and other schemes.",
   },
 ];
 
-const Features: React.FC = () => {
+// Animations
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 60 },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 80 },
+  visible: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 80 },
+};
+
+const AboutLIS: React.FC = () => {
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 text-center lg:text-left">
-          Your Global Marketplace for Certified
-          Loft Insulation Installers
-        </h1>
-        <p className="text-gray-700 mb-12 text-center lg:text-left max-w-3xl">
-          Welcome to LIS (Loft Insulation Services), the premier online marketplace
-          connecting homeowners and businesses with expert loft insulation installers
-          worldwide. With a vast network of over <strong>5,000 certified installers</strong>
-          spanning the UK, Canada, USA, Germany, Netherlands, France, Sweden, Finland,
-          and Ireland, LIS is dedicated to helping you find the best, most reliable,
-          and competitively priced installer near you.
-        </p>
+      <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 place-items-center">
+        {/* Left Column - Text */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-orange-400 mb-6 leading-snug">
+            Your Global Marketplace for Certified Installers
+          </h1>
+          <p className="text-slate-600 mb-6 max-w-xl leading-relaxed">
+            LIS connects homeowners with{" "}
+            <span className="font-semibold text-slate-800">
+              5,000+ certified experts
+            </span>{" "}
+            across the UK, USA, Canada, and Europe — making energy-efficient
+            upgrades simpler, faster, and more affordable.
+          </p>
 
-        {/* Subheading */}
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center lg:text-left">
-          Find Your Ideal Installer: Local Expertise, Global Standards
-        </h2>
-        <p className="text-gray-700 mb-12 text-center lg:text-left max-w-3xl">
-          Our robust platform allows you to search, compare, and connect with
-          qualified professionals in your vicinity. Every installer in our network
-          meets high standards of quality, reliability, and customer service, making
-          LIS your trusted partner for energy-efficient home upgrades.
-        </p>
+          <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 mb-3">
+            Local Expertise, Global Standards
+          </h2>
+          <p className="text-slate-600 max-w-xl leading-relaxed">
+            Search, compare, and hire trusted professionals who meet high
+            standards in quality and service — ensuring your loft project is
+            stress-free.
+          </p>
+        </motion.div>
 
-        {/* Services Grid */}
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center lg:text-left">
+        {/* Right Column - Image */}
+        <motion.div
+          className="flex justify-center lg:justify-end"
+          variants={fadeRight}
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          {/* Full-width container */}
+          <div className="relative w-full h-96 lg:h-96 overflow-hidden rounded-xl shadow-lg">
+            <Image
+              src="/images/london.png"
+              alt="Professional loft insulation team at work"
+              width={600}
+              height={600}
+              className="object-top"
+              priority
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Services */}
+      <div className="container mx-auto px-6 lg:px-12 mt-20">
+        <motion.h2
+          className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8 text-center"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }}
+        >
           Our Services
-        </h2>
+        </motion.h2>
+
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.02] transition transform"
+              className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition transform"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              viewport={{ once: false, amount: 0.2 }}
             >
               <div className="w-12 h-12 flex items-center justify-center mb-4 rounded-full bg-yellow-100">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
-              <p className="text-gray-700 text-sm">{service.description}</p>
-            </div>
+              <h3 className="text-lg font-semibold mb-2 text-slate-900">
+                {service.title}
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {service.description}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -101,4 +166,4 @@ const Features: React.FC = () => {
   );
 };
 
-export default Features;
+export default AboutLIS;
