@@ -1,80 +1,38 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// app/layout.tsx
 import "./globals.css";
-import StructuredData from "@/components/StructuredData";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-  preload: true, 
-});
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Loft Insulation Solutions | Energy Efficient Home Insulation",
-    template: "%s | Loft Insulation Solutions",
-  },
+  title:
+    "Free Loft Insulation UK | Loft Insulation Leads - Verified Homeowners",
   description:
-    "Professional loft insulation services to reduce energy bills and improve home comfort. Expert installation with quality materials and guaranteed results.",
-  keywords: [
-    "loft insulation",
-    "home insulation",
-    "energy efficiency",
-    "thermal insulation",
-    "roof insulation",
-    "attic insulation",
-  ],
-  authors: [{ name: "Loft Insulation Solutions" }],
-  creator: "Loft Insulation Solutions",
-  publisher: "Loft Insulation Solutions",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://loft-insulation-solutions.com"),
-  alternates: {
-    canonical: "/",
-  },
+    "Claim free loft insulation in the UK & Cut energy bills, stay warmer. Get fresh, verified loft insulation leads in the UK. Connect with eligible homeowners",
+  metadataBase: new URL("https://www.loft-insulation-services-uk.com/"),
   openGraph: {
-    type: "website",
-    locale: "en_GB",
-    url: "https://loft-insulation-solutions.com",
-    title: "Loft Insulation Solutions | Energy Efficient Home Insulation",
+    title: "Free Loft Insulation Grants UK, Buy Quality Loft Insulation Leads",
     description:
-      "Professional loft insulation services to reduce energy bills and improve home comfort. Expert installation with quality materials and guaranteed results.",
-    siteName: "Loft Insulation Solutions",
+      "Access government-backed grants for free loft insulation in the UK. Exclusive loft insulation leads in the UK",
+    url: "https://www.loft-insulation-services-uk.com/",
+    siteName: "Loft Insulation Services UK",
     images: [
       {
-        url: "/images/hero-insulation.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Professional loft insulation installation",
+        url: "image-url",
+        alt: "Loft Insulation Services UK",
       },
     ],
+    locale: "en_GB",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Loft Insulation Solutions | Energy Efficient Home Insulation",
+    title: "Get fresh, verified loft insulation leads in the UK.",
     description:
-      "Professional loft insulation services to reduce energy bills and improve home comfort.",
-    images: ["/images/hero-insulation.jpg"],
+      "Apply for free loft insulation in the UK. Check your eligibility under the 2025 energy-saving scheme.",
+    creator: "@l4rgindia",
+    images: ["image-url"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
+  robots: { index: true, follow: true },
+  authors: [{ name: "LIS UK" }],
 };
 
 export default function RootLayout({
@@ -83,20 +41,49 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head>
-        {/* Preconnect to Google Fonts for faster font loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Custom meta / link tags */}
+        <meta
+          name="keywords"
+          content="Insulation companies near me, Loft insulation leads UK, Free loft insulation UK, ECO4 loft insulation UK, Loft insulation cost UK, Attic insulation UK"
+        />
+
+        {/* Favicons */}
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="https://d3euc6irt3la1j.cloudfront.net/apple-icon-180x180.webp"
+        />
+        <link
+          rel="icon"
+          type="image/webp"
+          sizes="32x32"
+          href="https://d3euc6irt3la1j.cloudfront.net/favicon-32x32.webp"
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
+
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              url: "https://www.loft-insulation-services-uk.com/",
+              name: "Loft Insulation Services UK",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://www.loft-insulation-services-uk.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
-        {children}
-        <StructuredData />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

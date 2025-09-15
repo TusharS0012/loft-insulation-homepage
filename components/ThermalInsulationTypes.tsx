@@ -16,7 +16,7 @@ interface InsulationType {
 const insulationTypes: InsulationType[] = [
   {
     title: "Blanket Insulation",
-    icon: <Layers className="w-6 h-6 text-indigo-600" />,
+    icon: <Layers className="w-6 h-6 text-yellow-400" />,
     description:
       "Pre-cut rolls or batts (fiberglass, mineral wool, natural fibers). Great for open lofts and unfinished walls.",
     pros: ["Affordable", "DIY-friendly"],
@@ -24,7 +24,7 @@ const insulationTypes: InsulationType[] = [
   },
   {
     title: "Loose-Fill (Blown-In)",
-    icon: <Wind className="w-6 h-6 text-indigo-600" />,
+    icon: <Wind className="w-6 h-6 text-yellow-400" />,
     description:
       "Small particles blown into cavities, filling gaps perfectly. Excellent for retrofits and awkward lofts.",
     pros: ["Excellent coverage", "Minimal disruption"],
@@ -32,7 +32,7 @@ const insulationTypes: InsulationType[] = [
   },
   {
     title: "Spray Foam",
-    icon: <Droplet className="w-6 h-6 text-indigo-600" />,
+    icon: <Droplet className="w-6 h-6 text-yellow-400" />,
     description:
       "Expands on application, sealing gaps and offering very high insulation per inch.",
     pros: ["Air + moisture barrier", "Very effective"],
@@ -40,7 +40,7 @@ const insulationTypes: InsulationType[] = [
   },
   {
     title: "SIPs Panels",
-    icon: <Hammer className="w-6 h-6 text-indigo-600" />,
+    icon: <Hammer className="w-6 h-6 text-yellow-400" />,
     description:
       "Prefabricated foam panels between structural boards. Fast and strong for new builds.",
     pros: ["High insulation", "Quick install"],
@@ -50,7 +50,7 @@ const insulationTypes: InsulationType[] = [
 
 const ThermalInsulationTypes: React.FC = () => {
   return (
-    <section className="py-20 bg-green-200">
+    <section className="py-16 bg-yellow-300">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Heading */}
         <motion.h2
@@ -58,7 +58,7 @@ const ThermalInsulationTypes: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-cyan-900 mb-4 text-center lg:text-left"
+          className="text-3xl sm:text-4xl font-bold text-white mb-4 text-center lg:text-left"
         >
           Types of Thermal Insulation
         </motion.h2>
@@ -68,10 +68,13 @@ const ThermalInsulationTypes: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-gray-600 mb-12 text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
+          className="text-black text-xl mb-12 py-6 pb-0 text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
         >
-          Explore popular insulation solutions—each designed for different
-          needs, budgets, and property types.
+          Our marketplace connects you with installers proficient in a wide
+          array of loft insulation solutions. Each type offers distinct benefits
+          tailored to different property needs, budgets, and environmental
+          considerations. Understanding these options is key to making an
+          informed decision for your home.
         </motion.p>
 
         {/* Cards */}
@@ -85,19 +88,21 @@ const ThermalInsulationTypes: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100 cursor-pointer"
+              className="bg-neutral-900 p-6 rounded-2xl shadow-md hover:shadow-yellow-500/40 transition border border-neutral-800 cursor-pointer"
             >
               <div className="flex items-center mb-4">
                 {type.icon}
-                <h3 className="ml-3 text-lg font-semibold text-gray-900">
+                <h3 className="ml-3 text-lg font-semibold text-white">
                   {type.title}
                 </h3>
               </div>
 
-              <p className="text-gray-600 text-sm mb-4">{type.description}</p>
+              <p className="text-neutral-400 text-sm mb-4">
+                {type.description}
+              </p>
 
               <div className="flex justify-between text-sm">
-                <ul className="space-y-1 text-green-600">
+                <ul className="space-y-1 text-green-500">
                   {type.pros.map((pro, i) => (
                     <li key={i}>+ {pro}</li>
                   ))}
