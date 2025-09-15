@@ -24,27 +24,28 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/images/video-poster.jpg"
           onLoadedData={() => setVideoLoaded(true)}
         />
       )}
 
       {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10"></div>
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl w-full px-6 sm:px-6 lg:px-16 flex">
+      <div className="relative z-20 max-w-7xl w-full px-6 sm:px-6 lg:px-16 flex items-center">
         <div className="w-full lg:w-1/2 px-4 space-y-6 text-left">
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
             Save Up to{" "}
             <span className="text-yellow-300">25% on Energy Bills</span> with
             Professional Loft Insulation
           </h1>
+
           <p className="text-lg sm:text-xl text-white/90">
             Expert installation, certified materials, nationwide coverage.
-            Connect with over <strong>5,000 certified installers</strong> across
-            the UK, Canada, USA, Germany & India.
+            Connect with over <strong>5,000 certified installers</strong>{" "}
+            worldwide.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
@@ -54,6 +55,7 @@ const HeroSection = () => {
             >
               Get Free Quote
             </Link>
+
             <a
               href="tel:+1234567890"
               className="inline-block px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-green-700 transition"
@@ -69,7 +71,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Custom animation class */}
+      {/* Custom Animation */}
       <style jsx>{`
         .animate-bounce-slow {
           animation: bounce 2.5s infinite;
